@@ -1,0 +1,44 @@
+version = 'SERVER-SNAPSHOT'
+group = "de.terraconia";
+
+def isBungee = false
+project.ext.set('isBungee', isBungee)
+
+buildscript {
+    if(project.hasProperty('tcGradleScripts')) {
+        apply from: file(tcGradleScripts + '/tc-buildscript.gradle'), to: buildscript
+    }
+}
+
+subprojects {
+    tasks.withType(Javadoc).all { enabled = false }
+}
+
+apply plugin: 'java'
+//apply pluigin: 'application'
+
+//compileJava.options.encoding = 'windows-1252' // optional für konvertierte Projekte
+
+if(project.hasProperty('tcGradleScripts')) {
+    apply from: tcGradleScripts + '/tc-project.gradle'
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    embed
+    compile.extendsFrom embed
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'tc.plugins', name: 'bukkit', version: 'SERVER-SNAPSHOT', changing: true, transitive: false
+}
+
+jar {
+    from {
+        configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

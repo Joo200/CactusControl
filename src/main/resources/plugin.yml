@@ -1,0 +1,7 @@
+name: CactusControl
+author: JOO200
+version: 1.0
+main: de.joo.cactuscontrol.CactusControlPlugin
+
+commands:
+  cactuscontrol:
