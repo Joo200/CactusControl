@@ -1,7 +1,8 @@
-name: CactusControl
+name: FarmControl
 author: JOO200
 version: 1.0
-main: de.joo.cactuscontrol.CactusControlPlugin
+main: de.joo.farmcontrol.FarmControlPlugin
 
 commands:
   cactuscontrol:
+  fishcontrol:

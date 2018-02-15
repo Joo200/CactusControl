@@ -1,9 +1,4 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by Fernflower decompiler)
-//
-
-package de.joo.cactuscontrol.helper;
+package de.joo.farmcontrol.helper;
 
 import java.util.Calendar;
 import java.util.HashMap;

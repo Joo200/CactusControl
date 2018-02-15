@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="CactusControl_main" target="1.8" />
       <module name="CactusControl_test" target="1.8" />
+      <module name="FarmControl_main" target="1.8" />
+      <module name="FarmControl_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

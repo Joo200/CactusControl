@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CactusControl.iml" filepath="$PROJECT_DIR$/.idea/modules/CactusControl.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CactusControl_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CactusControl_main.iml" group="CactusControl" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CactusControl_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CactusControl_test.iml" group="CactusControl" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FarmControl.iml" filepath="$PROJECT_DIR$/.idea/modules/FarmControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FarmControl_main.iml" filepath="$PROJECT_DIR$/.idea/modules/FarmControl_main.iml" group="FarmControl" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FarmControl_test.iml" filepath="$PROJECT_DIR$/.idea/modules/FarmControl_test.iml" group="FarmControl" />
     </modules>
   </component>
 </project>

@@ -1,20 +1,18 @@
-package de.joo.cactuscontrol;
+package de.joo.farmcontrol.Listener;
 
-import de.joo.cactuscontrol.helper.AntiSpam;
+import de.joo.farmcontrol.FarmControlPlugin;
+import de.joo.farmcontrol.helper.AntiSpam;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPhysicsEvent;
 
-/**
- * Created by Johannes on 03.02.2018.
- */
 public class CactusEventListener implements Listener {
     private AntiSpam<Location> cactusLookup = new AntiSpam<>(100);
-    private CactusControlPlugin plugin;
+    private FarmControlPlugin plugin;
 
-    public CactusEventListener(CactusControlPlugin plugin) {
+    public CactusEventListener(FarmControlPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -24,7 +22,7 @@ public class CactusEventListener implements Listener {
         if(event.getChangedType() == Material.AIR) {
             cactusLookup.setBlocked(event.getBlock().getLocation());
         } else if (event.getChangedType() == Material.CACTUS && cactusLookup.isBlocked(event.getBlock().getLocation())) {
-            plugin.incrementLocation(event.getBlock().getLocation());
+            plugin.incrementCactusLocation(event.getBlock().getLocation());
         }
     }
 }

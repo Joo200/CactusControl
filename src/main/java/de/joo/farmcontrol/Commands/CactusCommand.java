@@ -1,5 +1,6 @@
-package de.joo.cactuscontrol;
+package de.joo.farmcontrol.Commands;
 
+import de.joo.farmcontrol.FarmControlPlugin;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -12,13 +13,10 @@ import org.bukkit.entity.Player;
 import java.util.Comparator;
 import java.util.Map;
 
-/**
- * Created by Johannes on 03.02.2018.
- */
 public class CactusCommand implements CommandExecutor {
-    private CactusControlPlugin plugin;
+    private FarmControlPlugin plugin;
 
-    public CactusCommand(CactusControlPlugin plugin) {
+    public CactusCommand(FarmControlPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -29,11 +27,11 @@ public class CactusCommand implements CommandExecutor {
             return true;
         }
         Player player = (Player)commandSender;
-        if(!player.hasPermission("cactuscontrol.see")) {
+        if(!player.hasPermission("farmcontrol.see")) {
             player.sendMessage(ChatColor.RED + "Unzureichende Berechtigungen.");
             return true;
         }
-        Map<Location, Integer> counterMap = plugin.getCounterMap();
+        Map<Location, Integer> counterMap = plugin.getCactusCounterMap();
         if(counterMap.size() == 0) {
             player.sendMessage(ChatColor.RED + "Es wurden keine Kakteenfarmen gefunden.");
             return true;
@@ -54,7 +52,7 @@ public class CactusCommand implements CommandExecutor {
             return true;
         }
         player.sendMessage(ChatColor.BLUE + "Kakteenfarmen. Gesamt: " + counterMap.size() + " Seite " + page + " von " + (((int)counterMap.size()/15)+1) +":");
-        plugin.getCounterMap().entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+        plugin.getCactusCounterMap().entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .skip(15*(page-1)).limit(15).forEach(entry -> {
             player.spigot().sendMessage(new ComponentBuilder(ChatColor.GRAY + "" + entry.getKey().getBlockX()
                     + ", " + entry.getKey().getBlockY()
