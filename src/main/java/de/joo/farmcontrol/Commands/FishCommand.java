@@ -54,7 +54,7 @@ public class FishCommand implements CommandExecutor {
             return true;
         }
         player.sendMessage(ChatColor.BLUE + "Mögliche AFK-Fischfarmen. Gesamt: " + counterMap.size() + " Seite " + page + " von " + (((int)counterMap.size()/15)+1) +":");
-        plugin.getFishCounterMap().entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+        plugin.getFishCounterMap().entrySet().stream().filter( p -> p.getValue() > 50).sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .skip(15*(page-1)).limit(15).forEach(entry -> {
             player.spigot().sendMessage(new ComponentBuilder(ChatColor.GRAY + "" + entry.getKey().getBlockX()
                     + ", " + entry.getKey().getBlockY()

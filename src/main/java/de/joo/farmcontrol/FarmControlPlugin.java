@@ -23,11 +23,7 @@ public class FarmControlPlugin extends JavaPlugin {
     }
 
     public void incrementCactusLocation(Location location) {
-        if(counterMapCactus.containsKey(location)) {
-            counterMapCactus.put(location, counterMapCactus.get(location)+1);
-        } else {
-            counterMapCactus.put(location, 1);
-        }
+        counterMapCactus.entrySet().stream().filter(entry -> location.distance(entry.getKey()) <= 20).findFirst().ifPresentOrElse(entry -> entry.setValue(entry.getValue()+1), () -> counterMapCactus.put(location, 1));
     }
 
     public Map<Location, Integer> getCactusCounterMap() {
