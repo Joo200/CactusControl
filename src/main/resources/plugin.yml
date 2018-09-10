@@ -6,3 +6,4 @@ main: de.joo.farmcontrol.FarmControlPlugin
 commands:
   cactuscontrol:
   fishcontrol:
+  irongolemcontrol:

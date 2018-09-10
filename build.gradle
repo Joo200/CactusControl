@@ -1,6 +1,7 @@
 version = 'SERVER-SNAPSHOT'
 group = "de.terraconia";
 
+project.ext.targetServerGroups = ["all"]
 def isBungee = false
 project.ext.set('isBungee', isBungee)
 
