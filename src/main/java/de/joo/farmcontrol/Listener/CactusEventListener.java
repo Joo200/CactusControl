@@ -18,11 +18,11 @@ public class CactusEventListener implements Listener {
 
     @EventHandler
     public void onBlockPhysics(BlockPhysicsEvent event) {
-        if(event.getBlock().getType() != Material.CACTUS) return;
+        if(event.getSourceBlock().getType() != Material.CACTUS) return;
         if(event.getChangedType() == Material.AIR) {
-            cactusLookup.setBlocked(event.getBlock().getLocation());
-        } else if (event.getChangedType() == Material.CACTUS && cactusLookup.isBlocked(event.getBlock().getLocation())) {
-            plugin.incrementCactusLocation(event.getBlock().getLocation());
+            cactusLookup.setBlocked(event.getSourceBlock().getLocation());
+        } else if (event.getChangedType() == Material.CACTUS && cactusLookup.isBlocked(event.getSourceBlock().getLocation())) {
+            plugin.incrementCactusLocation(event.getSourceBlock().getLocation());
         }
     }
 }

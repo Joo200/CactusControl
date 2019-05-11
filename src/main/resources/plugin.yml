@@ -2,6 +2,7 @@ name: FarmControl
 author: JOO200
 version: 1.0
 main: de.joo.farmcontrol.FarmControlPlugin
+api-version: 1.13
 
 commands:
   cactuscontrol:
